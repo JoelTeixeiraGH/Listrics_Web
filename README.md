@@ -1,27 +1,14 @@
-# TrabalhoAngular
+# Dynamic Restaurant Search Web Application
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.6.
+This dynamic web application is built using Angular and allows users to search for restaurants while accessing detailed information about each establishment. Key features include:
 
-## Development server
+- **Restaurant Search:** Easily find restaurants based on various criteria.
+- **Detailed Information Access:** Users can view in-depth details about each restaurant, including:
+  - Daily menus
+  - Average pricing
+  - Reservation options
+  - Customer reviews
+  - Cuisine types
+  - Location details
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+All dynamic content is retrieved through the Zomato HTTP API, ensuring that users have access to the most current information.
