@@ -1,0 +1,236 @@
+<section role="navigation">
+  <nav class="navbar navbar-expand-md navbar-custom-mini">
+    <ul class="nav navbar-nav ml-auto">
+      <li class="nav-item">
+        <a href="#" data-toggle="modal" data-target="#modalLoginForm">
+          <i class="fas fa-user" style="font-size: 20px;"></i>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</section>
+
+<!--Login Modal-->
+<div
+  class="modal fade"
+  id="modalLoginForm"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="myModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h2 class="modal-title w-100">Login</h2>
+        <button
+          role="button"
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-4">
+          <div class="input-group mb-2 mr-sm-2">
+            <div class="input-group-prepend">
+              <div class="input-group-text"><i class="fas fa-user"></i></div>
+            </div>
+            <input
+              role="textbox"
+              type="text"
+              class="form-control"
+              id="inlineFormInputGroupUsername2"
+              placeholder="Username"
+            />
+          </div>
+        </div>
+
+        <div class="md-form mb-4">
+          <div class="input-group mb-2 mr-sm-2">
+            <div class="input-group-prepend">
+              <div class="input-group-text"><i class="fas fa-lock"></i></div>
+            </div>
+            <input
+              role="textbox"
+              type="password"
+              class="form-control"
+              id="inlineFormInputGroupPassword2"
+              placeholder="Password"
+            />
+          </div>
+        </div>
+
+        <a
+          ><button
+            role="button"
+            type="submit"
+            class="btn btn-primary btn-block btn-md botaoComment"
+          >
+            Login
+          </button></a
+        >
+
+        <div class="remember2">
+          <a>Forgot Password?</a>
+        </div>
+
+        <div class="form-check">
+          <div class="remember">
+            <input
+              role="checkbox"
+              type="checkbox"
+              class="form-check-input"
+              id="exampleCheck1"
+            />
+            <label class="form-check-label styleFont" for="exampleCheck1"
+              >Remember me</label
+            >
+            <br />
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer d-flex justify-content-center">
+        <p>
+          Don't have an account?
+          <a
+            href=""
+            data-toggle="modal"
+            data-target="#modalResgisterForm"
+            data-dismiss="modal"
+            >Create one</a
+          >
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+<!--//Login Modal//-->
+
+<!--Register Modal-->
+<div
+  class="modal fade"
+  id="modalResgisterForm"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="myModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h2 class="modal-title w-100">Create Account</h2>
+        <button
+          role="button"
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-4">
+          <div class="input-group mb-2 mr-sm-2">
+            <div class="input-group-prepend">
+              <div class="input-group-text"><i class="fas fa-user"></i></div>
+            </div>
+            <input
+              role="textbox"
+              type="text"
+              class="form-control"
+              id="inlineFormInputGroupUsername3"
+              placeholder="Username"
+            />
+          </div>
+        </div>
+
+        <div class="md-form mb-4">
+          <div class="input-group mb-2 mr-sm-2">
+            <div class="input-group-prepend">
+              <div class="input-group-text">
+                <i class="fas fa-envelope"></i>
+              </div>
+            </div>
+            <input
+              role="textbox"
+              type="text"
+              class="form-control"
+              id="inlineFormInputGroupPassword3"
+              placeholder="Email"
+            />
+          </div>
+        </div>
+
+        <div class="md-form mb-4">
+          <div class="input-group mb-2 mr-sm-2">
+            <div class="input-group-prepend">
+              <div class="input-group-text"><i class="fas fa-lock"></i></div>
+            </div>
+            <input
+              role="textbox"
+              type="password"
+              class="form-control"
+              id="inlineFormInputGroupPassword3"
+              placeholder="Password"
+            />
+          </div>
+        </div>
+
+        <div class="md-form mb-4">
+          <div class="input-group mb-2 mr-sm-2">
+            <div class="input-group-prepend">
+              <div class="input-group-text"><i class="fas fa-lock"></i></div>
+            </div>
+            <input
+              role="textbox"
+              type="password"
+              class="form-control"
+              id="inlineFormInputGroupPassword3"
+              placeholder="Repeat your password"
+            />
+          </div>
+        </div>
+        <div class="form-check">
+          <div class="remember3">
+            <input
+              role="checkbox"
+              type="checkbox"
+              class="form-check-input"
+              id="exampleCheck3"
+            />
+            <label class="form-check-label" for="exampleCheck1">
+              <p>I agree all statements in <a href="">Terms of Service</a></p>
+            </label>
+          </div>
+          <br />
+        </div>
+        <button
+          role="button"
+          type="submit"
+          class="btn btn-primary btn-block btn-md botaoComment"
+        >
+          Register
+        </button>
+      </div>
+      <div class="modal-footer d-flex justify-content-center">
+        <p>
+          Have already an account?
+          <a
+            href=""
+            data-toggle="modal"
+            data-target="#modalLoginForm"
+            data-dismiss="modal"
+            >Login here</a
+          >
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--//Register Modal//-->

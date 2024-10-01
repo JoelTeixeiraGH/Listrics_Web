@@ -1,0 +1,170 @@
+<div class="backgroundNav">
+  <app-nav-bar-mini></app-nav-bar-mini>
+</div>
+<div class="container">
+  <div class="titles">
+    <h1>Search</h1>
+    <h4>
+      Explore curated lists of top restaurants, cafes, pubs and bars in
+      {{ city_text }}, based on trends
+    </h4>
+  </div>
+
+  <div role="row" class="row">
+    <div class="col-md-12">
+      <!--#1-->
+      <div class="col-md-8">
+        <div class="spaceSearch">
+          <mat-form-field>
+            <mat-label>Location</mat-label>
+            <mat-select [(value)]="optionCity">
+              <mat-option>None</mat-option>
+              <mat-option (click)="selectCity2(optionCity)" value="Porto"
+                >Porto</mat-option
+              >
+              <mat-option (click)="selectCity2(optionCity)" value="Lisbon"
+                >Lisbon</mat-option
+              >
+              <mat-option (click)="selectCity2(optionCity)" value="Algarve"
+                >Algarve</mat-option
+              >
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <!--space-->
+
+        <!--#2-->
+        <div class="spaceSearch" *ngIf="category">
+          <mat-form-field>
+            <mat-label>Category</mat-label>
+            <mat-select [(value)]="optionCategory">
+              <mat-option>None</mat-option>
+              <mat-option
+                *ngFor="let categories of category.categories"
+                [value]="categories.categories.id"
+              >
+                {{ categories.categories.name }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <!--#3-->
+
+        <div class="spaceSearch" *ngIf="cozinhas">
+          <mat-form-field>
+            <mat-label>Cuisine</mat-label>
+            <mat-select [(value)]="optionCuisine">
+              <mat-option>None</mat-option>
+              <mat-option
+                *ngFor="let cuisine of cozinhas.cuisines"
+                [value]="cuisine.cuisine.cuisine_id"
+              >
+                {{ cuisine.cuisine.cuisine_name }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="spaceSearch2">
+          <button
+            mat-stroked-button
+            [routerLink]="[
+              '/restaurants',
+              optionCity,
+              optionCategory,
+              optionCuisine
+            ]"
+          >
+            <span class="material-icons">
+              search
+            </span>
+          </button>
+        </div>
+
+        <div class="spaceSearch2">
+          <button mat-stroked-button (click)="unselect()">
+            <span class="material-icons">
+              replay
+            </span>
+          </button>
+        </div>
+      </div>
+      <!--Close-->
+
+      <div class="titles">
+        <h1>Collections</h1>
+        <h2>Explore what your city has to offer!</h2>
+      </div>
+      <div role="row" class="row" *ngIf="collection">
+        <div
+          class="col-md-4"
+          *ngFor="let collections of collection.collections"
+        >
+          <div class="single-blog">
+            <img
+              [src]="collections.collection.image_url"
+              class="cropCollections"
+            />
+            <h2>{{ collections.collection.title }}</h2>
+            <p>{{ collections.collection.description }}</p>
+          </div>
+        </div>
+      </div>
+
+      <h1 class="titles">Categories</h1>
+      <div role="row" class="row">
+        <div class="col-md-12 centradoxd">
+          <div class="containerCategorias tiraStyle" *ngIf="category">
+            <figure class="item" *ngFor="let categories of category.categories">
+              <a
+                type="button
+              (click)="
+                [routerLink]="[
+                  '/restaurants',
+                  city_text,
+                  categories.categories.id
+                ]"
+              >
+                <img
+                  src="assets/imgs/category_{{ categories.categories.id }}.png"
+                  width="100"
+                  height="100"
+                />
+                <figcaption class="caption">
+                  {{ categories.categories.name }}
+                </figcaption>
+              </a>
+            </figure>
+          </div>
+        </div>
+      </div>
+
+      <br />
+
+      <h1 class="titles">Best restaurants in town</h1>
+      <div role="row" class="row" *ngIf="restaurants">
+        <div
+          class="col-md-3 col-sm-3 centradoxd tiraStyle"
+          *ngFor="let restaurante of restaurants.restaurants"
+        >
+          <a routerLink="/restaurant/{{ restaurante.restaurant.id }}">
+            <img
+              role="img"
+              class="img-thumbnail arredondar"
+              [src]="restaurante.restaurant.thumb"
+            />
+            <h5>
+              {{ restaurante.restaurant.name }}
+            </h5>
+          </a>
+          <br /><br />
+        </div>
+      </div>
+    </div>
+
+    <br /><br />
+  </div>
+</div>

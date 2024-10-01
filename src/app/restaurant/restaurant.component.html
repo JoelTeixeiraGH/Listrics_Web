@@ -1,0 +1,261 @@
+<app-nav-bar></app-nav-bar>
+<section role="main">
+  <div class="container spaceFromFooter">
+    <div class="row">
+      <div class="col-md-12">
+        <ul class="list-group">
+          <li class="list-group-item jtList3" *ngIf="solorestaurante">
+            <img
+              onerror="this.onerror=null; this.src='assets/imgs/wallpaper2.png'"
+              [src]="solorestaurante.featured_image"
+              class="responsive jtList3Image cropRestaurant"
+            />
+            <div class="jtScore">
+              <i class="fas fa-star"></i>
+              {{ solorestaurante.user_rating.aggregate_rating }}/5
+            </div>
+            <div class="listRestaurante">
+              <div class="soloRestaurant">
+                <b>{{ solorestaurante.name }}</b>
+              </div>
+              <div id="accordion">
+                <div class="card">
+                  <div class="card-header accordionHeader" id="headingOne">
+                    <h5 class="mb-0">
+                      <button
+                        role="button"
+                        class="btn btn-link titleAccordion"
+                        data-toggle="collapse"
+                        data-target="#collapseOne"
+                        aria-expanded="true"
+                        aria-controls="collapseOne"
+                      >
+                        Overview
+                      </button>
+                    </h5>
+                  </div>
+
+                  <div
+                    id="collapseOne"
+                    class="collapse show"
+                    aria-labelledby="headingOne"
+                    data-parent="#accordion"
+                  >
+                    <div class="card-body">
+                      <p></p>
+                      <div class="row">
+                        <div class="col-md-4">
+                          <b>Address</b><br />
+                          {{ solorestaurante.location.address }}<br />
+                          <br />
+                          <b>Contact</b><br />
+                          {{ solorestaurante.phone_numbers }}<br /><br />
+                          <b>Cuisines</b><br />
+                          {{ solorestaurante.cuisines }}<br /><br />
+                        </div>
+                        <div class="col-md-4">
+                          <b>Hours</b><br />
+                          <mat-accordion>
+                            <mat-expansion-panel
+                              class="horarioxd mat-elevation-z0"
+                            >
+                              <mat-expansion-panel-header>
+                                <mat-panel-title>
+                                  See all
+                                </mat-panel-title>
+                              </mat-expansion-panel-header>
+                              <p *ngFor="let hour of solorestaurantexd">
+                                {{ hour }}
+                              </p>
+                            </mat-expansion-panel>
+                          </mat-accordion>
+
+                          <br />
+                          <b>Average cost for two</b><i></i><br />
+                          {{ solorestaurante.average_cost_for_two }}
+                          {{ solorestaurante.currency }}
+                        </div>
+                        <div class="col-md-4">
+                          <b>Highlights</b><br />
+                          <div
+                            *ngFor="
+                              let highlights of solorestaurante.highlights
+                            "
+                          >
+                            {{ highlights }}<br />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!---->
+
+                <div class="card">
+                  <div class="card-header accordionHeader" id="headingTwo">
+                    <h5 class="mb-0">
+                      <button
+                        role="button"
+                        class="btn btn-link collapsed titleAccordion"
+                        data-toggle="collapse"
+                        data-target="#collapseTwo"
+                        aria-expanded="false"
+                        aria-controls="collapseTwo"
+                      >
+                        Menu
+                      </button>
+                    </h5>
+                  </div>
+                  <div
+                    id="collapseTwo"
+                    class="collapse"
+                    aria-labelledby="headingTwo"
+                    data-parent="#accordion"
+                  >
+                    <div class="card-body">
+                      <div *ngIf="badRequest">
+                        <img
+                          class="img-fluid mx-auto d-block"
+                          src="assets/imgs/menunotfound2.png"
+                        />
+                      </div>
+                      <div *ngIf="menudiario">
+                        <div *ngIf="!badRequest">
+                          <b>Contact</b><br />
+                          {{ menudiario.name }}<br />
+                          <b>Start-Date</b><br />
+                          {{ menudiario.start_date }}<br />
+                          <b>End-Date</b><br />
+                          {{ menudiario.end_date }}<br /><br />
+                          <b>Dish's Name</b><br />
+                          {{ menudiario.dishes.name }}<br />
+                          <b>Price</b><br />
+                          {{ menudiario.dishes.price }}<br />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header accordionHeader" id="headingThree">
+                    <h5 class="mb-0">
+                      <button
+                        role="button"
+                        class="btn btn-link collapsed titleAccordion"
+                        data-toggle="collapse"
+                        data-target="#collapseThree"
+                        aria-expanded="false"
+                        aria-controls="collapseThree"
+                      >
+                        Photos
+                      </button>
+                    </h5>
+                  </div>
+
+                  <!--Photos-->
+                  <div
+                    id="collapseThree"
+                    class="collapse"
+                    aria-labelledby="headingThree"
+                    data-parent="#accordion"
+                  >
+                    <div class="card-body">
+                      <div class="row">
+                        <div class="col-md-12">
+                          <div *ngFor="let imagem of solorestaurante.photos">
+                            <img
+                              [src]="imagem.photo.thumb_url"
+                              class="photosRestaurant"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+
+        <section role="form">
+          <!--Write a review-->
+          <ul class="list-group">
+            <li class="list-group-item jtList2">
+              <h2>Write a Review & Rate the establishment</h2>
+              <br />
+
+              <!--Rate System-->
+              <app-review-system></app-review-system>
+            </li>
+          </ul>
+        </section>
+        <br />
+
+        <!--Reviews-->
+
+        <ul class="list-group">
+          <li class="list-group-item jtList3">
+            <h2>Reviews</h2>
+            <br />
+
+            <ul class="list-group">
+              <div *ngFor="let review of reviews">
+                <li class="list-group-item jtList4">
+                  <img
+                    [src]="review.review.user.profile_image"
+                    class="img-thumbnail cropReview"
+                  />
+                  <span class="nameReview"
+                    ><b>{{ review.review.user.name }}</b></span
+                  >,
+                  {{ review.review.review_time_friendly }}
+
+                  <p class="textReview">
+                    {{ review.review.review_text }}<br />
+                  </p>
+                  <br /><br />
+                  <span class="heartReview"
+                    ><a href="#1"
+                      ><i class="fas fa-heart"></i> {{ review.review.likes }}</a
+                    ></span
+                  >
+                  <span class="commentReview"
+                    ><a href="#1"
+                      ><i class="fas fa-comment"></i>
+                      {{ review.review.comments_count }}</a
+                    ></span
+                  >
+                  <span class="shareReview"
+                    ><a href="#1"><i class="fas fa-share"></i></a
+                  ></span>
+                  <span class="jtScore2"
+                    ><i class="fas fa-star"></i>
+                    {{ review.review.rating }}/5</span
+                  >
+                  <br />
+                </li>
+                <br />
+              </div>
+            </ul>
+            <nav aria-label="Page navigation ">
+              <ul class="pagination">
+                <li class="page-item" *ngFor="let page of pages">
+                  <a
+                    class="page-link tiraBStyle"
+                    type="button"
+                    [ngClass]="{
+                      selectPagination: this.currentPage === page
+                    }"
+                    (click)="pagination(page)"
+                    >{{ page }}</a
+                  >
+                </li>
+              </ul>
+            </nav>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
